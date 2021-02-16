@@ -1,7 +1,9 @@
 const fs = require('fs');
 const csv = require('csv-parser')
+const ResultModel = require('../models/ResultModel')
 
-exports.getArticle = async (req,res) => {
+
+exports.getArticle = (req,res) => {
     const results = [];
     let lineNum = Math.floor(Math.random() * 23984) + 2;
     fs.createReadStream('./public/OnionOrNot.csv')
@@ -26,6 +28,14 @@ exports.getArticle = async (req,res) => {
     );
 }
 
-exports.postResult = (req,res) => {
-    
+exports.postResult = async (req,res) => {
+    try {
+        var result = new ResultModel(req.body)
+        var savedResult = await result.save()
+        if (savedResult) {
+          res.send(savedResult)
+        }
+      } catch (err) {
+        res.sendStatus(500).send('Result Post unsuccesful')
+      }
 }

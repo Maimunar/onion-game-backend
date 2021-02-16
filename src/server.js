@@ -1,4 +1,5 @@
 require('dotenv').config()
+import bodyParser from 'body-parser'
 import express from 'express'
 import mongoose from 'mongoose'
 import routes from './routes'
@@ -20,6 +21,11 @@ mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (e
   if (err) console.log(err)
   else console.log(`Succesfully connected mongodb on URL ${DB_URL}`)
 })
+
+/*
+    Middleware
+*/
+app.use(bodyParser.json())
 
 /*
   Send the request to the router
