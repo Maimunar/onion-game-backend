@@ -1,7 +1,7 @@
 require('dotenv').config()
 import express from 'express'
 import mongoose from 'mongoose'
-
+import routes from './routes'
 /*
   Main server file using express
   Uses mongoose for the database and body-parser for request formatting
@@ -24,7 +24,7 @@ mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (e
 /*
   Send the request to the router
 */
-// app.use('/api', routes)
+app.use('/api', routes())
 
 app.listen(PORT,
   () => console.log(`Listening on port ${PORT}`))
