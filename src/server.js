@@ -3,6 +3,8 @@ import bodyParser from 'body-parser'
 import express from 'express'
 import mongoose from 'mongoose'
 import routes from './routes'
+
+const cors = require('cors');
 /*
   Main server file using express
   Uses mongoose for the database and body-parser for request formatting
@@ -25,6 +27,7 @@ mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, (e
 /*
     Middleware
 */
+app.use(cors())
 app.use(bodyParser.json())
 
 /*
