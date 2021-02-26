@@ -15,3 +15,7 @@ The api has 1 endpoint at /api/article with a POST and a GET requets
 ## How to use
 
 Once you have cloned the repository, run `npm install` and then `npm start`
+
+### Frontend
+
+Frontend can be found on https://github.com/martin-r-georgiev/onion-game-frontend
