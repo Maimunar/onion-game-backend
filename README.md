@@ -8,6 +8,8 @@ A game based on finding whether an article is fake news or not.
 
 The background changes once every 10 articles, this is to gather information for a statistics research.
 
+This version utilizes Typescript instead of Javascript
+
 ## API Endpoints
 
 The api has 1 endpoint at /api/article with a POST and a GET requets
